@@ -17,18 +17,20 @@ class MainActivity : AppCompatActivity() {
         // 1 - Pegar o botão
         // 2 - Adicionar o listener
 
-        val button = findViewById<Button>(R.id.btEnviar)
-        val textView = findViewById<TextView>(R.id.tvResultado)
-        val editTextView = findViewById<EditText>(R.id.etName)
+        val btEnviar = findViewById<Button>(R.id.btEnviar)
+        val tvResultado = findViewById<TextView>(R.id.tvResultado)
+        val etName = findViewById<EditText>(R.id.etName)
 
         // Dentro das chaves, o código que escrevemos será executado apenas
         // quando o botão for clicado
-        button.setOnClickListener {
+        btEnviar.setOnClickListener {
             // Código para executar quando o botão for clicado
-            if(editTextView.text.isNullOrBlank()) {
-                editTextView.error = "Mensagem de erro!"
+            val name = etName.text.toString()
+
+            if(name.isNotBlank()) {
+                tvResultado.text = name
             } else {
-                textView.text = editTextView.text
+                etName.error = "Digite um nome válido"
             }
         }
     }
