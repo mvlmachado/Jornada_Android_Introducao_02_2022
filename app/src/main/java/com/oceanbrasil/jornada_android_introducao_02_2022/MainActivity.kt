@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -18,13 +19,17 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         val textView = findViewById<TextView>(R.id.textView)
+        val editTextView = findViewById<EditText>(R.id.editTextTextPersonName)
 
         // Dentro das chaves, o código que escrevemos será executado apenas
         // quando o botão for clicado
         button.setOnClickListener {
             // Código para executar quando o botão for clicado
-
-            textView.text = "Samsung Ocean!!"
+            if(editTextView.text.isNullOrBlank()) {
+                editTextView.error = "Mensagem de erro!"
+            } else {
+                textView.text = editTextView.text
+            }
         }
     }
 }
