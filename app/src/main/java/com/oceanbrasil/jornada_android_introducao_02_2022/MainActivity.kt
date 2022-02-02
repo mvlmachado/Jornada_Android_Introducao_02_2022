@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
             // Iremos adicionar a informação do nome digitado na Intent através do putExtra
             intentAbrirNovaTela.putExtra("NOME_DIGITADO", etName.text.toString())
-            
+
             //Registramos a Intent
             startActivity(intentAbrirNovaTela)
         }
